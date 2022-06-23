@@ -14,9 +14,9 @@ namespace MyFirstProject._2darray
             {
                 for (int j = 0; j < a.GetLength(1); j++)
                 {
-                    if (j == 0 || j == 0 || (i == 1 && j == 1) || (i == 2 && j == 2)||(i==3 && j==3)|| j==3)
+                    if (j == 0 || (i ==j) || j==a.GetUpperBound(1))
                     {
-                        Console.Write("*");
+                        Console.Write(j);
                     }
                     else
                     {

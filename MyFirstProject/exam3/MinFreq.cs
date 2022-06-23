@@ -6,29 +6,49 @@ namespace MyFirstProject.exam3
 {
     class MinFreq
     {
-        public void freq(char[]arr)
+        static int leastFrequent(int[] arr, int n)
         {
-            char min = arr[0];
-            for (int i = 0; i < arr.Length; i++)
+            // Sort the array
+            Array.Sort(arr);
+
+            // find the min frequency
+            // using linear traversal
+            int min_count = n + 1, res = -1;
+            int curr_count = 1;
+
+            for (int i = 1; i < n; i++)
             {
-                if(arr[i]<min)
+                if (arr[i] == arr[i - 1])
+                    curr_count++;
+                else
                 {
-                    min = arr[i];
+                    if (curr_count < min_count)
+                    {
+                        min_count = curr_count;
+                        res = arr[i - 1];
+                    }
+
+                    curr_count = 1;
                 }
             }
-            Console.WriteLine("minimum frequency is " + min);
+
+            // If last element is least frequent
+            if (curr_count < min_count)
+            {
+                min_count = curr_count;
+                res = arr[n - 1];
+            }
+
+            return res;
         }
         static void Main(string[]args)
         {
-            char[] a = new char[6];
-            Console.WriteLine("enter elements");
-            for (int i = 0; i < a.Length; i++)
-            {
-                a[i] = Console.ReadLine()[0];
-            }
 
-            MinFreq m1 = new MinFreq();
-            m1.freq(a);
+            int[] arr = { 1, 3, 2, 1, 2, 2, 3, 1 };
+            int n = arr.Length;
+
+            // Function calling
+            Console.Write(leastFrequent(arr, n));
         }
     }
 }
