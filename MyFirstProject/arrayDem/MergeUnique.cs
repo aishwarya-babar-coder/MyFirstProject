@@ -6,40 +6,75 @@ namespace MyFirstProject.arrayDem
 {
     class MergeUnique
     {
-       public void UMerge(int[] arr1, int[] arr2)
+        public void UMerge(int[] arr1, int[] arr2)
         {
-            int[] arr3 = new int[arr1.Length + arr2.Length];
 
-            int j = 0;
-            for(int i=0;i<arr1.Length;i++)
+            int size1 = arr1.Length;
+            int size2 = arr2.Length;
+            int size3 = size1 + size2;
+            int[] arr3 = new int[size3];
+           
+            for (int i=0;i<size1;i++)
             {
-                arr3[j] = arr1[i];
-                j++;
-            }
-            for(int i=0;i<arr2.Length;i++)
-            {
-                bool ispresent = false;
-                for(int k=j-1;k>=0;k--)
+                for (int j = i + 1; j < size1; j++)
                 {
-                    if(arr3[k]==arr2[i])
+                    if (arr1[i] == arr1[j])
                     {
-                        ispresent = true;
-                        break;
+                        for (int k = j; k < size1 - 1; k++)
+                        {
+                            arr1[k] = arr1[k + 1];
+                        }
+                        size1--;
+                        j--;
                     }
                 }
-                if (ispresent == false)
-                {
+            }
+            for (int m = 0; m < size1; m++)
+            {
+                arr3[m] = arr1[m];
+            }
 
-                    arr3[j] = arr2[i];
-                    j++;
+            for (int i = 0; i < size2; i++)
+            {
+                for (int j = i + 1; j < size2; j++)
+                {
+                    if (arr2[i] == arr2[j])
+                    {
+                        for (int k = j; k < size2 - 1; k++)
+                        {
+                            arr2[k] = arr2[k + 1];
+                        }
+                        size2--;
+                        j--;
+                    }
                 }
             }
-
-            for(int i=0;i<arr3.Length;i++)
+            for(int i=0;i<size1;i++)
             {
-
-                Console.WriteLine(arr3[i]);
+                for(int j=0;j<size2;j++)
+                {
+                    if(arr1[i]==arr2[j])
+                    {
+                        for(int k=j;k<size2-1;k++)
+                        {
+                            arr2[k] = arr2[k + 1];
+                        }
+                        size2--;
+                        j--;
+                    }
+                }
             }
+            for (int m=0;m<size2;m++)
+            {
+                arr3[size1 + m] = arr2[m];
+            }
+
+            size3 = size1 + size2;
+            for(int i=0;i<size3;i++)
+            {
+                Console.Write(arr3[i] + "  ");                
+            }
+
         }
         static void Main(string[]args)
         {

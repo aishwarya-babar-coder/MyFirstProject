@@ -21,7 +21,8 @@ namespace MyFirstProject.arrayDem
                         break;
                     }
                 }
-                if(isvisited=false)
+
+                if(isvisited==false)
                 {
                     for(int j=i+1;j<arr.Length;j++)
                     {
@@ -30,7 +31,14 @@ namespace MyFirstProject.arrayDem
                             count++;
                         }
                     }
-                    Console.WriteLine(arr[i] + " " + count);
+                    if (count == 1)
+                    {
+                        Console.WriteLine(arr[i] + " " + count);
+                    }
+                    else if(count>1)
+                    {
+                        Console.WriteLine(arr[i] + " " + count);
+                    }
                 }
             }
         }
