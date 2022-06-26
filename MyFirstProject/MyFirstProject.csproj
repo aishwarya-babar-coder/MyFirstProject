@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<StartupObject>MyFirstProject.arrayDem.FreqAll</StartupObject>
+		<StartupObject>MyFirstProject.StringProg.ToggleCase22</StartupObject>
 	</PropertyGroup>
 
 </Project>
