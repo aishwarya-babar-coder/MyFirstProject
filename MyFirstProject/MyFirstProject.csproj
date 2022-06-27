@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
-		<StartupObject>MyFirstProject.StringProg.ToggleCase22</StartupObject>
+		<StartupObject>MyFirstProject.prorigo.Anagramcs</StartupObject>
 	</PropertyGroup>
 
 </Project>
